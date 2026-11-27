@@ -2,10 +2,11 @@
 
 Two Bash scripts:
 
-| Script | What it does |git clone https://github.com/<your-username>/linux-scripts-assignment.git
-|---|---|
-| `sysinfo.sh` | Prints hostname, date/time, logged-in user, disk usage of `/`, memory usage and the top 5 processes by memory. Also saves the output to `sysinfo_YYYY-MM-DD.txt`. |
-| `log_report.sh` | Takes an access log and prints total requests, number of 404 errors and the top 3 IP addresses. |
+ Script 
+What it does |git clone https://github.com/<your-username>/linux-scripts-assignment.git
+
+ `sysinfo.sh` ---- Prints hostname, date/time, logged-in user, disk usage of `/`, memory usage and the top 5 processes by memory. Also saves the output to `sysinfo_YYYY-MM-DD.txt`. 
+`log_report.sh` ----  Takes an access log and prints total requests, number of 404 errors and the top 3 IP addresses. 
 
 ## How to run
 
