@@ -1,0 +1,37 @@
+name: Build Docker image
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t myapp .
+
+      # Bonus: run the container and call /health
+      - name: Run container
+        run: docker run -d --name myapp -p 5000:5000 myapp
+
+      - name: Check /health
+        run: |
+          for i in $(seq 1 15); do
+            if curl -fsS http://localhost:5000/health; then
+              echo
+              echo "Health check passed"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Health check failed"
+          docker logs myapp
+          exit 1
+
+      - name: Stop container
+        if: always()
+        run: docker rm -f myapp
